@@ -12,6 +12,7 @@ body {
 
 table {
     width: 8in;
+    fill:white;
 }
 
 table>tr>td:first-child {
