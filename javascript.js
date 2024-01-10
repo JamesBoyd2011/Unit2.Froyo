@@ -14,16 +14,16 @@ const froyoIcon = `<?xml version="1.0" encoding="iso-8859-1"?>
 </svg>`;
 
 const froyoColors = {
-    vanilla: "linen",
-    chocolate: "brown",
-    mint: "lightgreen",
-    strawberry: "lightpink",
-    coffee: "brown",
-    lemon:"yellow",
-    berry:"lightblue",
-    mango:"orange",
-  };
-
+  vanilla: "linen",
+  chocolate: "brown",
+  mint: "lightgreen",
+  strawberry: "lightpink",
+  coffee: "saddlebrown",
+  lemon: "yellow",
+  berry: "lightblue",
+  mango: "orange",
+  chocolate: "chocolate",
+};
 
 captureOrder(
   prompt(
@@ -39,9 +39,13 @@ function captureOrder(prompt = "") {
       .trim()
       .toLowerCase()
       .replace(/\b\w/g, (s) => s.toUpperCase());
-    !previousValue[currentValue]
-      ? (previousValue[currentValue] = 1)
-      : previousValue[currentValue]++;
+
+    if (currentValue.length) {
+      !previousValue[currentValue]
+        ? (previousValue[currentValue] = 1)
+        : previousValue[currentValue]++;
+    }
+
     return previousValue;
   }, {});
 
@@ -75,5 +79,3 @@ function newTableRow(data, table) {
   });
   table.append(tr);
 }
-
-
